@@ -7,12 +7,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "mergedata": "./dataManipulation.js"
+    "merge": "./dataManipulation.js",
+    "import": "./addToIndex.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "algoliasearch": "^3.24.5",
     "csvtojson": "^1.1.9"
   }
 }
