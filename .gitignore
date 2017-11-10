@@ -9,3 +9,7 @@ yarn-error.log*
 node_modules/
 
 # Build
+/dist
+
+# Other
+.DS_Store
