@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./node_modules/webpack/bin/webpack.js -p",
-    "start":
-      "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors"
+    "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors"
   },
   "bin": {
     "merge": "./dataManipulation.js",
@@ -20,7 +19,11 @@
     "algoliasearch": "^3.24.5",
     "algoliasearch-helper": "^2.23.0",
     "csvtojson": "^1.1.9",
-    "react-algoliasearch-helper": "^1.2.1"
+    "material-ui": "^1.0.0-beta.20",
+    "material-ui-icons": "^1.0.0-beta.17",
+    "react-algoliasearch-helper": "^1.2.1",
+    "react-collapse": "^4.0.3",
+    "react-motion": "^0.5.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
