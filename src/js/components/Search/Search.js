@@ -15,7 +15,8 @@ const accent = grey["50"];
 const styles = theme => ({
   container: {
     flexGrow: 1,
-    position: "relative"
+    position: "relative",
+    paddingTop: "10px"
   },
   searchField: {
     width: "100%"
