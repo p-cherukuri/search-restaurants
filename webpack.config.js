@@ -1,5 +1,3 @@
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-
 let getDevTool = () => {
   if (process.env.NODE_ENV !== "production") {
     return "source-map"; //enable source map
@@ -27,14 +25,13 @@ module.exports = {
         }
       },
       {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract("css-loader!sass-loader")
+        test: /\.css$/,
+        loader: "style-loader!css-loader"
+      },
+      {
+        test: /\.(png|jpg)$/,
+        loader: "url-loader"
       }
     ]
-  },
-  plugins: [
-    new ExtractTextPlugin("dist/styles/main.css", {
-      allChunks: true
-    })
-  ]
+  }
 };

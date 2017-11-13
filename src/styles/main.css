@@ -1,0 +1,15 @@
+.fullStar {
+  position: relative;
+  display: block;
+  background: url("./stars-plain.png") repeat-x;
+  background-size: 18px 18px;
+  height: 18px;
+  bottom: 18px;
+}
+
+.blankStar {
+  display: block;
+  background: url("./star-empty.png") repeat-x;
+  background-size: 18px 18px;
+  height: 18px;
+}
