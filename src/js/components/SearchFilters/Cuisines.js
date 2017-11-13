@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import List, { ListItem, ListItemText } from "material-ui/List";
 import { withStyles } from "material-ui/styles";
 import Checkbox from "material-ui/Checkbox";
+import reactAlgoliaSearchHelper, { connect } from "react-algoliasearch-helper";
 
 class Cuisines extends Component {
   constructor(props) {

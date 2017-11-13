@@ -1,10 +1,15 @@
 import React, { Component } from "react";
-
+import PropTypes from "prop-types";
+import reactAlgoliaSearchHelper, {
+  Provider,
+  connect
+} from "react-algoliasearch-helper";
 import { withStyles } from "material-ui/styles";
 import Card, { CardContent, CardMedia } from "material-ui/Card";
 import Typography from "material-ui/Typography";
 import Paper from "material-ui/Paper";
 import Result from "./Result";
+import ShowMoreButton from "./ShowMore";
 
 const styles = theme => ({
   card: {
@@ -61,34 +66,80 @@ const styles = theme => ({
 class SearchResults extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      loadedResults: []
+    };
+
+    this.onShowMoreButtonClick = this.onShowMoreButtonClick.bind(this);
+  }
+
+  componentWillReceiveProps(props) {
+    if (props.currentPage === 0) {
+      this.setState({
+        loadedResults: []
+      });
+    } else if (props.currentPage !== this.props.currentPage) {
+      this.setState({
+        loadedResults: this.state.loadedResults.concat(this.props.currentHits)
+      });
+    }
+  }
+
+  onShowMoreButtonClick() {
+    this.props.helper
+      .setQueryParameter("hitsPerPage", 20)
+      .setPage(this.props.currentPage + 1)
+      .search();
   }
 
   render() {
+    const currentHits = this.props.searching ? [] : this.props.currentHits;
+    const hits = this.state.loadedResults.concat(currentHits);
+    const resultList = [];
+    if (this.props.currentHits && this.props.currentHits.length > 0) {
+      const hit = hits.map(hit => {
+        return <Result key={hit.objectID} {...hit} />;
+      });
+      const page = <ShowMoreButton handleClick={this.onShowMoreButtonClick} />;
+      resultList.push(hit, page);
+      console.log(resultList);
+    }
+
     return (
-      <div className={this.props.classes.searchResultsContainer}>
-        <div className={this.props.classes.searchMetricsContainer}>
-          <Paper className={this.props.classes.searchMetrics}>
-            <div className={this.props.classes.searchStats}>
-              <Typography type="body1" component="p" color="secondary">
-                34 results found in 0.002 seconds
-              </Typography>
-            </div>
-          </Paper>
+      this.props.currentHits && (
+        <div className={this.props.classes.searchResultsContainer}>
+          <div className={this.props.classes.searchMetricsContainer}>
+            <Paper className={this.props.classes.searchMetrics}>
+              <div className={this.props.classes.searchStats}>
+                <Typography type="body1" component="p" color="secondary">
+                  {this.props.result.nbHits} in{" "}
+                  {this.props.result.processingTimeMS / 1000} seconds
+                </Typography>
+              </div>
+            </Paper>
+          </div>
+          <div className={this.props.classes.resultsContainer}>
+            {resultList}
+          </div>
         </div>
-        <div className={this.props.classes.resultsContainer}>
-          <Result />
-          <Result />
-          <Result />
-          <Result />
-          <Result />
-          <Result />
-          <Result />
-          <Result />
-          <Result />
-        </div>
-      </div>
+      )
     );
   }
 }
 
-export default withStyles(styles)(SearchResults);
+SearchResults.PropTypes = {
+  helper: PropTypes.object.isRequired,
+  searching: PropTypes.bool.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  currentHits: PropTypes.array
+};
+
+const SearchResultsList = connect(state => ({
+  searching: state.searching,
+  currentPage: state.searchParameters.page,
+  result: state.searchResults,
+  currentHits: state.searchResults && state.searchResults.hits
+}))(SearchResults);
+
+export default withStyles(styles)(SearchResultsList);

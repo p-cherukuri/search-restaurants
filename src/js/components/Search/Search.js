@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import reactAlgoliaSearchHelper, {
+  Provider,
+  connect
+} from "react-algoliasearch-helper";
 
 import AppBar from "material-ui/AppBar";
 import Toolbar from "material-ui/Toolbar";
@@ -95,6 +99,11 @@ class Search extends Component {
     this.state = { isOpened: false, mobileOpen: false };
 
     //this.handleClick.bind(this);
+    this.handleSearchChange = this.handleSearchChange.bind(this);
+  }
+
+  handleSearchChange(e) {
+    this.props.helper.setQuery(e.target.value).search();
   }
 
   handleClick() {
@@ -108,34 +117,28 @@ class Search extends Component {
   render() {
     const { classes, theme } = this.props;
 
-    const drawer = (
-      <div>
-        <div className={classes.drawerHeader} />
-        <Divider />
-        <List>mail folder</List>
-        <Divider />
-        <List>other mail folder</List>
-      </div>
-    );
+    const currentHits = this.props.searching ? [] : this.props.currentHits;
+
+    const resultList = [];
+
+    if (this.props.currentHits && this.props.currentHits.length > 0) {
+      const result = currentHits.map(result => {
+        return <li key={result.objectID}>{result.name}</li>;
+      });
+      resultList.push(result);
+    }
 
     return (
       <div className={this.props.classes.root}>
         <AppBar color="default" className={this.props.classes.appBar}>
           <Toolbar color="default">
             <div className={this.props.classes.container}>
-              <IconButton
-                color="contrast"
-                aria-label="open drawer"
-                onClick={this.handleDrawerToggle}
-                className={this.props.classes.navIconHide}
-              >
-                <MenuIcon />
-              </IconButton>
               <div className="searchContainer">
                 <TextField
                   autoFocus={true}
                   className={this.props.classes.searchField}
                   placeholder="Search for restaurants by Name, Cuisine, Location"
+                  onChange={e => this.handleSearchChange(e)}
                 />
               </div>
 
@@ -154,7 +157,7 @@ class Search extends Component {
           <div className={this.props.classes.filtersDrawer}>
             <SearchFilters />
           </div>
-          <SearchResults className={this.props.classes.content} />
+          <SearchResults />
         </div>
       </div>
     );
@@ -166,4 +169,11 @@ Search.propTypes = {
   theme: PropTypes.object.isRequired
 };
 
-export default withStyles(styles, { withTheme: true })(Search);
+const SearchService = connect(state => ({
+  searching: state.searching,
+  currentPage: state.searchParameters.page,
+  result: state.searchResults,
+  currentHits: state.searchResults && state.searchResults.hits
+}))(Search);
+
+export default withStyles(styles, { withTheme: true })(SearchService);

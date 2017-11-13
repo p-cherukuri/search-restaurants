@@ -13,3 +13,30 @@
   background-size: 18px 18px;
   height: 18px;
 }
+
+.card {
+  display: flex;
+  width: 100%;
+  border: 0;
+}
+
+.details {
+  display: flex;
+  flex-direction: row;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.restaurantPic {
+  width: 85;
+  height: 85;
+  border-radius: 5;
+}
+
+.picContainer {
+  padding-left: 10;
+  padding: 10;
+  padding-right: 0;
+}
