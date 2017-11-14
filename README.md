@@ -4,7 +4,7 @@
 
 This is a simple Material Design UI that allows you to search for restaurants by Restaurant Name, Cuisine Type, or Location.
 
-The UI is built in React/ES6 with Webpack, and the search engine is powered by Algolia.
+The UI is built in React/ES6 with Webpack, and the search engine is powered by Algolia, using the JS Helper library.
 
 ## Details
 - Clone the repository and run `npm install` to install dependencies and run locally using `npm start`
