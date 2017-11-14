@@ -9,8 +9,7 @@ const fs = require("fs");
 const algoliasearch = require("algoliasearch");
 
 // Initializing Algolia client and 'restaurants' index
-// Replace <your application ID> and <your admin API key> with credentials found in Algolia account
-const client = algoliasearch("<your application ID>", "<your admin API key>");
+const client = algoliasearch("QMOG2R87CW", "1361d8557d5aa878acb7fefd8030ea6b");
 const index = client.initIndex("restaurants");
 
 const updatedRestaurantData = fs.readFileSync(

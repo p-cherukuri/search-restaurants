@@ -1,0 +1,101 @@
+Question #1: 
+
+Hello,
+
+I'm new to search engines, and there are a lot of concepts I'm not educated on. To make my onboarding smoother, it'd help if you could provide me with some definitions of the following concepts:
+
+Records
+Indexing
+I'm also struggling with understanding what types of metrics would be useful to include in the "Custom Ranking."
+
+Cheers, George
+
+Answer:
+
+Hi George,
+
+Thanks for choosing Algolia to power your search engine needs! I'd be happy to help you get started with using the service - here's a brief description of the concepts you mentioned:
+
+Indexing: In order to understand the process of indexing, you first need to know what an index is - in the context of Algolia, an index is defined as an entity where you import the data you want to search, and then perform search queries against. You can think of an index as being similar to a table in a database - the difference here is that an index in Algolia is highly optimized for search.
+
+Records: I described an index as being similar to a table in a database. If an index corresponds to a table, then a record corresponds to a row in that table. Any item that you store within an index is a record, and is searchable. Specifically, a record is actually a schemaless JSON object - any of its attributes can be used for performing various operations (i.e. searching, displaying information, filtering or ranking your search results.)
+
+Indexing: There's two types of operations you can perform using Algolia's engine. One of them is searching - the process of querying data stored in an index to return relevant search results - and the other one is indexing, which is the process of adding, updating, deleting, or manipulating data within an index.
+          There's three different ways you can go about indexing in Algolia:
+          1) Via the API
+          2) Via the Algolia Dashboard
+          3) Via a Third-Party Platform (i.e. Wordpress, Shopify, Magento)
+
+          To learn more about the Indexing process, I recommend taking a look at our guide here: (https://www.algolia.com/doc/guides/indexing/indexing-overview/.)
+
+Custom Ranking attributes are a great way to tune the relevance of your search queries to your specific needs using business metrics. They need to be either numerical or boolean (true/false) values - here's a few examples of how you might use them:
+- Using a raw value such as the number of views or sales of certain items, or a date timestamp to "boost" recent items
+- A calculated value such as "popularity" of items being purchased frequently, or "availability" of items high in stock that is based on a score computed on your side
+- Using an attribute called "featured" to decide manually which items you want to be more visible in search results. In this case, the value would default to 'false', and you could manually set it to true
+
+You can get an overview of the configuration process here: (https://www.algolia.com/doc/guides/getting-started/the-implementation-process/) and read more about Custom Ranking in our documentation here: (https://www.algolia.com/doc/guides/ranking/custom-ranking/.)
+
+Please feel free to reach out to me if you have any further questions, and thanks again for choosing Algolia!
+
+Best,
+Phani
+
+Question #2: 
+
+Hello,
+
+Sorry to give you the kind of feedback that I know you do not want to hear, but I really hate the new dashboard design. Clearing and deleting indexes are now several clicks away. I am needing to use these features while iterating, so this is inconvenient.
+
+Regards, Matt
+
+Answer:
+
+Hi Matt,
+
+Thank you for reaching out to us! We are dedicated to crafting the best possible user experience for our customers, and your feedback is very important to us in order to continue to do so. If you don't mind, could you walk me through the current method you're using to clear and delete indexes? This will help us better understand how we can improve this aspect of our product.
+
+In the meantime, here are two ways to quickly clear or delete indices from the 'Indices' tab, on the left sidebar of your Dashboard screen:
+1) Clicking on the icon next to an index's name should start a multiple select, so you can choose whichever indices you want to clear or delete using that action
+2) Use the 'Select All' option at the top of your indices list to select all your indices, and then deselect the indices you wish to keep
+
+After doing this, click either 'clear' or 'delete indices' on the right side of your screen - this will bring up a prompt for you to type 'clear' or 'delete' to confirm the operation.
+
+I hope this is helpful, but do let me know if you've already gone through these steps. Alternatively, writing custom scripts that communicate with our API is a great way to automate the process of clearing and deleting indices - I would be happy to help you in proceeding with that option if it interests you.
+
+Please let me know if you have any further feedback or if I can provide you with further assistance - 
+
+Best,
+Phani
+
+Answer:
+
+Question #3: 
+
+Hi,
+
+I'm looking to integrate Algolia in my website. Will this be a lot of development work for me? What's the high level process look like?
+
+Regards, Leo
+
+Hi Leo,
+
+Thanks for getting in touch! It's great to hear that you're looking into Algolia for your website, and I'd be happy to help you get started with the integration process. Here's a quick overview of integrating Algolia:
+
+The first thing you'll need to do after creating your account with us is import your data for searches. There's three different ways you can go about this:
+
+1) Dragging and dropping your JSON/CSV data into the Dashboard by logging into your Algolia account
+2) Using a plugin or extension that integrates with a third-party platform such as Wordpress or Shopify
+3) Communicating with our API directly through scripting
+
+After importing your data, you'll have to configure your search attributes to pick what the searches will be on (i.e. To search for movie showtimes, you'll want to search for the name of the movie and a location to find theaters near by.)
+
+After choosing your standard search attributes, it's highly recommended to create a Custom Ranking formula to tune your search results and make them more relevant to users. Using the movie theater example, you may want to rank your search results by locations closest to the user, or by theaters that are currently open.
+
+Lastly, you'll need a user interface to display your search results in a pleasant and organized manner. I highly recommend taking a look at our great UI libraries such as InstantSearch.js (https://community.algolia.com/instantsearch.js/), our browser extension, or react-instant-search (https://community.algolia.com/react-instantsearch/) for a full-fledged framework. We also have a JS Helper library (https://community.algolia.com/algoliasearch-helper-js/) that provides advanced development tooling for keeping track of and modifying search state at a deeper level.
+
+Feel free to read up more in our documentation (https://www.algolia.com/doc/guides/getting-started/the-implementation-process/), and you can get a feel for the service by signing up for our free trial here: (https://www.algolia.com/users/sign_up) which gives you access to our Essential plan for 14 days.
+
+I hope this information is helpful, and please do let me know if you have any more questions - I'm happy to be of assistance!
+
+Best,
+Phani

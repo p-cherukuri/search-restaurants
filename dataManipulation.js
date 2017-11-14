@@ -17,6 +17,27 @@ const csvFilePath = "./dataset/restaurants_info.csv";
 const csv = require("csvtojson");
 const restaurantsList = require("./dataset/restaurants_list.json");
 const jsonArr = [];
+const updatedRestaurantsList = [];
+
+let removePaymentMethod = paymentMethods => {
+  let newPaymentMethods = paymentMethods.slice();
+  let findBadPaymentMethods = ["Carte Blanche", "Diners Club"];
+  findBadPaymentMethods.forEach(paymentMethod => {
+    if (newPaymentMethods.includes(paymentMethod)) {
+      let i = newPaymentMethods.indexOf(paymentMethod);
+      newPaymentMethods.splice(i, 1);
+      if (!newPaymentMethods.includes("Discover")) {
+        newPaymentMethods.push("Discover");
+      }
+    }
+  });
+
+  let goodPaymentMethods = ["AMEX", "Visa", "Discover", "MasterCard"];
+  newPaymentMethods = newPaymentMethods.filter(paymentMethod =>
+    goodPaymentMethods.includes(paymentMethod)
+  );
+  return newPaymentMethods;
+};
 
 // Converting CSV to array of JSON objects, and then converting all objectIDs in the array from string to integer
 csv({ delimiter: ";" })
@@ -46,7 +67,16 @@ csv({ delimiter: ";" })
       });
     });
 
-    let data = JSON.stringify(restaurantsList);
+    restaurantsList.forEach(restaurant => {
+      let updatedPaymentMethod = removePaymentMethod(
+        restaurant.payment_options
+      );
+      updatedRestaurantsList.push(
+        Object.assign({}, restaurant, { updatedPaymentMethod })
+      );
+    });
+
+    let data = JSON.stringify(updatedRestaurantsList);
     fs.writeFileSync("./dataset/updated_restaurants_list.json", data);
     console.log(
       "*** Updated restaurants list saved in new file 'dataset/updated_restaurants_list.json' ***"

@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./node_modules/webpack/bin/webpack.js -p",
-    "start":
-      "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors"
+    "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors"
   },
   "bin": {
     "merge": "./dataManipulation.js",
@@ -33,6 +32,7 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.5",
+    "gh-pages": "^1.0.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "style-loader": "^0.19.0",
