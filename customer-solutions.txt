@@ -16,7 +16,7 @@ Hi George,
 
 Thanks for choosing Algolia to power your search engine needs! I'd be happy to help you get started with using the service - here's a brief description of the concepts you mentioned:
 
-Indexing: In order to understand the process of indexing, you first need to know what an index is - in the context of Algolia, an index is defined as an entity where you import the data you want to search, and then perform search queries against. You can think of an index as being similar to a table in a database - the difference here is that an index in Algolia is highly optimized for search.
+In order to understand the process of indexing, you should first know what an index is - in the context of Algolia, an index is defined as an entity where you import the data you want to search, and then perform search queries against. You can think of an index as being similar to a table in a database - the difference here is that an index in Algolia is highly optimized for search.
 
 Records: I described an index as being similar to a table in a database. If an index corresponds to a table, then a record corresponds to a row in that table. Any item that you store within an index is a record, and is searchable. Specifically, a record is actually a schemaless JSON object - any of its attributes can be used for performing various operations (i.e. searching, displaying information, filtering or ranking your search results.)
 
