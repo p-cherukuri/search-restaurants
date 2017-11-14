@@ -113,7 +113,7 @@
 .fullStar {
   position: relative;
   display: block;
-  background: url("../../images/stars-plain.png") repeat-x;
+  background: url("../../resources/images/stars-plain.png") repeat-x;
   background-size: 18px 18px;
   height: 18px;
   bottom: 18px;
@@ -121,7 +121,7 @@
 
 .blankStar {
   display: block;
-  background: url("../../images/star-empty.png") repeat-x;
+  background: url("../../resources/images/star-empty.png") repeat-x;
   background-size: 18px 18px;
   height: 18px;
 }

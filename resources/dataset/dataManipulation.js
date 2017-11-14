@@ -77,7 +77,7 @@ csv({ delimiter: ";" })
     });
 
     let data = JSON.stringify(updatedRestaurantsList);
-    fs.writeFileSync("./dataset/updated_restaurants_list.json", data);
+    fs.writeFileSync("./updated_restaurants_list.json", data);
     console.log(
       "*** Updated restaurants list saved in new file 'dataset/updated_restaurants_list.json' ***"
     );

@@ -13,7 +13,7 @@ const client = algoliasearch("QMOG2R87CW", "1361d8557d5aa878acb7fefd8030ea6b");
 const index = client.initIndex("restaurants");
 
 const updatedRestaurantData = fs.readFileSync(
-  "./dataset/updated_restaurants_list.json"
+  "./updated_restaurants_list.json"
 );
 const updatedRestaurantsList = JSON.parse(updatedRestaurantData);
 

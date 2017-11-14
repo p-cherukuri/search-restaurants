@@ -6,11 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./node_modules/webpack/bin/webpack.js -p",
-    "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors"
+    "start":
+      "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors",
+    "deploy": "gh-pages -d dist"
   },
   "bin": {
-    "merge": "./dataManipulation.js",
-    "import": "./addToIndex.js"
+    "merge": "./resources/dataset/dataManipulation.js",
+    "import": "./resources/dataset/addToIndex.js"
   },
   "keywords": [],
   "author": "",
