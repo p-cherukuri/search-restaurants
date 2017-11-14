@@ -10,7 +10,7 @@ The UI is built in React/ES6 with Webpack, and the search engine is powered by A
 - Clone the repository and run `npm install` to install dependencies and run locally using `npm start`
 - I made two scripts for data manipulation and importing respectively - running `merge` imports and parses a .csv file, then merges it with the .json file of restaurant objects and outputs it as a new file, `updated_restaurants_list.json`. Then, running `import` reads in the new .json file of restaurants, and sends the data to the Algolia index `restaurants`.
 - The design is using React's `material-ui`, which is based on Google's Material Design layout.
-- The layout accounts for mobile by dynamically rendering the container elements based on the screen size.
+- The layout accounts for mobile by dynamically rendering the container elements based on the screen size. On smaller screen sizes, the Filters sidebar is hidden and a Filters button with a dropdown menu is rendered instead.
 - The search results change as the user types, and the results are ordered based on the user's browser location, with the closest restaurants being highest in the search results list. If the user did not grant location permissions, the location is calculated from the user's IP address to order the search results.
 - Every result displays the name of the restaurant, rating via number of stars using an exact calculation, the number of reviews, type of cuisine, neighborhood, and price range.
 - Clicking the "Show More" button shows the next three search results.
