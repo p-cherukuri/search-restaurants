@@ -182,6 +182,10 @@
   .mobileDropdown {
     display: block !important;
   }
+
+  .restaurantInfo {
+    font-size: 10px;
+  }
 }
 
 .filterButton {
