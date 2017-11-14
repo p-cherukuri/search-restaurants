@@ -81,7 +81,7 @@ Hi Leo,
 
 Thanks for getting in touch! It's great to hear that you're looking into Algolia for your website, and I'd be happy to help you get started with the integration process. Here's a quick overview of integrating Algolia:
 
-The first thing you'll need to do after creating your account with us is import your data for searches. There's three different ways you can go about this:
+The first thing you'll need to do after creating your account is import your data for searches. There's three different ways you can go about this:
 
 1) Dragging and dropping your JSON/CSV data into the Dashboard by logging into your Algolia account
 2) Using a plugin or extension that integrates with a third-party platform such as Wordpress or Shopify
