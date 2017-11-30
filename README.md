@@ -1,6 +1,4 @@
-# Algolia SE Assignment
-
-[Link](https://p-cherukuri.github.io/search-restaurants/)
+# [Demo Link](https://p-cherukuri.github.io/search-restaurants/)
 
 This is a simple Material Design UI that allows you to search for restaurants by Restaurant Name, Cuisine Type, or Location.
 
@@ -19,7 +17,7 @@ The UI is built in React/ES6 with Webpack, and the search engine is powered by A
 - On desktop, the Filters sidebar has a sticky subheader as you scroll through each filter.
 
 ## Issues
-- Search Filters are not working (Cuisines and Payment Options are not rendering, Rating and Price Filters show 0 results always)
+- Search Filters are not working yet (Cuisines and Payment Options are not rendering, Rating and Price Filters show 0 results always)
 - Mobile formatting needs work with font and resource resizing, and the "Show More" button doesn't disappear when all results are shown
 
 ## Other features I'd like to add
@@ -27,11 +25,7 @@ The UI is built in React/ES6 with Webpack, and the search engine is powered by A
 - Show how many miles away each restaurant is
 - Be able to search for restaurants around a location of choice
 - Integrate Google Maps to view locations on map as well
-- Autocomplete search results
-
-## Communication Solutions
-
-My answers to the example customer questions are in this [.txt file](https://github.com/p-cherukuri/search-restaurants/blob/master/customer-solutions.txt).  
+- Autocomplete search results  
 
 
 
